@@ -28,6 +28,13 @@
   "createVirtualizationSuccess": "Virtualizzazione \"{{name}}\" creata.",
   "cursorColumn": "Colonna",
   "cursorLine": "Linea",
+  "dataPermissionModel": {
+    "addPermissionRole": "Add permission role",
+    "modelTitle": "Data Permission for the view",
+    "dataRole": "Data role",
+    "permissionType": "Permission type",
+    "conditionExpression": "Condition expression"
+  },
   "ddlTextPlaceholder": "Digita la vista DDL ...",
   "deleteInProgress": "Eliminazione ...",
   "deleteModalMessage": "Ciò eliminerà definitivamente la virtualizzazione \"{{name}}\".  Procedere con l'eliminazione?",
@@ -150,6 +157,7 @@
   "viewDescriptionDisplay": "Descrizione",
   "viewDescriptionValidationError": "Le descrizioni delle viste non possono contenere virgolette.",
   "viewEditor": {
+    "addDataPermission": "Add Data Permission",
     "title": "Visualizza editor",
     "unsavedChangesMessage": "Sono presenti modifiche non salvate nella definizione della vista che andranno perse. Vuoi ancora interrompere la modifica?",
     "unsavedChangesTitle": "Annullare la modifica?"

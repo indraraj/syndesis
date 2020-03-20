@@ -1,0 +1,24 @@
+.data-permission-model_divider{
+    margin: auto;
+}
+
+.data-permission-model_role_dropdown > button{
+    width: 200px !important;
+}
+
+.data-permission-model_permission_dropdown > button{
+    width: 450px !important;
+}
+
+.data-permission-model_form{
+    display: flex !important;
+    padding: 10px 0px;
+}
+
+.data-permission-model_dropdown{
+    display: block !important;
+}
+
+.data-permission-model_formGroup_permission{
+    padding-left: 25px ;
+}

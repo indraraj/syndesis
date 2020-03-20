@@ -28,6 +28,13 @@
   "createVirtualizationSuccess": "Виртуализация \"{{name}}\" создана.",
   "cursorColumn": "колонка",
   "cursorLine": "Линия",
+  "dataPermissionModel": {
+    "addPermissionRole": "Add permission role",
+    "modelTitle": "Data Permission for the view",
+    "dataRole": "Data role",
+    "permissionType": "Permission type",
+    "conditionExpression": "Condition expression"
+  },
   "ddlTextPlaceholder": "Введите представление DDL ...",
   "deleteInProgress": "Удаление...",
   "deleteModalMessage": "Это навсегда удалит виртуализацию \"{{name}}\".  Продолжить удаление?",
@@ -150,6 +157,7 @@
   "viewDescriptionDisplay": "Описание",
   "viewDescriptionValidationError": "Описания представлений не могут содержать кавычек.",
   "viewEditor": {
+    "addDataPermission": "Add Data Permission",
     "title": "Просмотр редактора",
     "unsavedChangesMessage": "У вас есть несохраненные изменения в определении представления, которые будут потеряны. Вы все еще хотите прекратить редактирование?",
     "unsavedChangesTitle": "Отменить редактирование?"

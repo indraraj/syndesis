@@ -8,12 +8,14 @@ import {
   CardFooter,
   Grid,
   GridItem,
+  Modal,
   Text,
   TextContent,
   Title,
 } from '@patternfly/react-core';
+import { PlusIcon } from '@patternfly/react-icons';
 import * as React from 'react';
-import { ConnectionTreeComponent } from '.';
+import { ConnectionTreeComponent, DataPermissionModel } from '.';
 import { Loader, PageSection } from '../../../Layout';
 import { ITextEditor, TextEditor } from '../../../Shared';
 import './DdlEditor.css';
@@ -82,6 +84,14 @@ export interface IDdlEditorProps {
    */
   i18nValidationResultsTitle: string;
 
+  i18nAddDataPermission: string;
+
+  i18nModelAddPermissionRole: string;
+  i18nModelTitle: string;
+  i18nModelDataRole: string;
+  i18nModelPermissionType: string;
+  i18nModelConditionExp: string;
+
   /**
    * `true` if the validation message is to be shown
    */
@@ -145,6 +155,7 @@ export const DdlEditor: React.FunctionComponent<IDdlEditorProps> = props => {
   const [hasChanges, setHasChanges] = React.useState(false);
   const [savedValue, setSavedValue] = React.useState(props.viewDdl);
   const [keywordsRegistered, setKeywordsRegistered] = React.useState(false);
+  const [isModalOpen, setIsModalOpen] = React.useState<boolean>(false);
   const [cursorPosition, setCursorPosition] = React.useState(
     `( ${props.i18nCursorLine} ?, ${props.i18nCursorColumn} ? )`
   );
@@ -214,6 +225,10 @@ export const DdlEditor: React.FunctionComponent<IDdlEditorProps> = props => {
     return result;
   };
 
+  const handleModalToggle = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   const editorOptions = {
     autoCloseBrackets: true,
     autofocus: true,
@@ -237,17 +252,17 @@ export const DdlEditor: React.FunctionComponent<IDdlEditorProps> = props => {
   return (
     <Grid style={{ flexGrow: 1 }}>
       <GridItem span={3}>
-        <PageSection
-          isFilled={true}
-          variant={'light'}
-          className={'ddl-editor'}
-        >
+        <PageSection isFilled={true} variant={'light'} className={'ddl-editor'}>
           <Title headingLevel="h5" size="lg">
             {props.i18nMetadataTitle}
           </Title>
-          <div className={props.previewExpanded
-              ? 'ddl-editor_metatree_table ddl-editor_metatree_table_scroll'
-              : 'ddl-editor_metatree_table'}>
+          <div
+            className={
+              props.previewExpanded
+                ? 'ddl-editor_metatree_table ddl-editor_metatree_table_scroll'
+                : 'ddl-editor_metatree_table'
+            }
+          >
             <ConnectionTreeComponent
               metadataTree={metadataTree}
               i18nLoading={props.i18nLoading}
@@ -259,6 +274,13 @@ export const DdlEditor: React.FunctionComponent<IDdlEditorProps> = props => {
         <PageSection isFilled={true} variant={'light'} className={'ddl-editor'}>
           <Title headingLevel="h5" size="lg">
             {props.i18nTitle}
+            <Button
+              variant="link"
+              icon={<PlusIcon />}
+              onClick={handleModalToggle}
+            >
+              {props.i18nAddDataPermission}
+            </Button>
           </Title>
           {props.showValidationMessage
             ? props.validationResults.map((e, idx) => (
@@ -282,6 +304,34 @@ export const DdlEditor: React.FunctionComponent<IDdlEditorProps> = props => {
               {cursorPosition}
             </Text>
           </TextContent>
+          <Modal
+            isLarge={true}
+            title={props.i18nModelTitle}
+            isOpen={isModalOpen}
+            onClose={handleModalToggle}
+            actions={[
+              <Button
+                key="confirm"
+                variant="primary"
+                onClick={handleModalToggle}
+              >
+                {props.i18nSaveLabel}
+              </Button>,
+              <Button key="cancel" variant="link" onClick={handleModalToggle}>
+                Cancel
+              </Button>,
+            ]}
+            isFooterLeftAligned={true}
+          >
+            {
+              <DataPermissionModel
+                i18nModelAddPermissionRole={props.i18nModelAddPermissionRole}
+                i18nModelDataRole={props.i18nModelDataRole}
+                i18nModelPermissionType={props.i18nModelPermissionType}
+                i18nModelConditionExp={props.i18nModelConditionExp}
+              />
+            }
+          </Modal>
           <Card>
             <CardBody className={'ddl-editor__card-body'}>
               <TextEditor

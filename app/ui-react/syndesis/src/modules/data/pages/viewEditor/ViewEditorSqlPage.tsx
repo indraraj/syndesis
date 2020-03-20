@@ -337,6 +337,12 @@ export const ViewEditorSqlPage: React.FunctionComponent = () => {
                 i18nCursorColumn={t('cursorColumn')}
                 i18nCursorLine={t('cursorLine')}
                 i18nDdlTextPlaceholder={t('ddlTextPlaceholder')}
+                i18nModelAddPermissionRole={t('dataPermissionModel.addPermissionRole')}
+                i18nAddDataPermission={t('viewEditor.addDataPermission')}
+                i18nModelTitle={t('dataPermissionModel.modelTitle')}
+                i18nModelDataRole={t('dataPermissionModel.dataRole')}
+                i18nModelPermissionType={t('dataPermissionModel.permissionType')}
+                i18nModelConditionExp={t('dataPermissionModel.conditionExpression')}
                 i18nDoneLabel={t('shared:Done')}
                 i18nSaveLabel={t('shared:Save')}
                 i18nTitle={t('viewEditor.title')}

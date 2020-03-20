@@ -28,6 +28,13 @@
   "createVirtualizationSuccess": "\"{{name}}\" virtualization created.",
   "cursorColumn": "Column",
   "cursorLine": "Line",
+  "dataPermissionModel": {
+    "addPermissionRole": "Add permission role",
+    "modelTitle": "Data Permission for the view",
+    "dataRole": "Data role",
+    "permissionType": "Permission type",
+    "conditionExpression": "Condition expression"
+  },
   "ddlTextPlaceholder": "Type the view DDL...",
   "deleteInProgress": "Deleting...",
   "deleteModalMessage": "This will permanently delete the virtualization \"{{name}}\".  Proceed with the deletion?",
@@ -150,6 +157,7 @@
   "viewDescriptionDisplay": "Description",
   "viewDescriptionValidationError": "View descriptions cannot contain quotation marks.",
   "viewEditor": {
+    "addDataPermission": "Add Data Permission",
     "title": "View editor",
     "unsavedChangesMessage": "You have unsaved changes in the view definition that will be lost. Do you still want to stop editing?",
     "unsavedChangesTitle": "Cancel editing?"

@@ -5,3 +5,5 @@ export * from './MetadataTree/ConnectionTreeComponent';
 export * from './MetadataTree/TreeTableNodeComponent';
 export * from './MetadataTree/TreeColumnNodeComponent';
 export * from './MetadataTree/KababActionComponent';
+export * from './DataPermissionModel';
+export * from './DataPermissionRole';
