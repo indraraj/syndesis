@@ -138,6 +138,17 @@ export default {
         },
       })
     ),
+    dataPermission: makeResolver<{ virtualization: Virtualization }>(
+      routes.virtualizations.dataPermission,
+      ({virtualization}) => ({
+        params: {
+          virtualizationId: virtualization.name,
+        },
+        state: {
+          virtualization,
+        },
+      })
+    ),
     create: makeResolverNoParams(routes.virtualizations.create),
     import: makeResolverNoParams(routes.virtualizations.import),
     list: makeResolverNoParams(routes.virtualizations.list),

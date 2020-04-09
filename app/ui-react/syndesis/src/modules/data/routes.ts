@@ -4,6 +4,7 @@ export default include('/data', {
   root: '',
   virtualizations: include('virtualizations', {
     create: 'create',
+    dataPermission: 'permission',
     import: 'import',
     list: '',
     virtualization: include(':virtualizationId', {

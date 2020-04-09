@@ -12,6 +12,7 @@ import { useRouteData } from '@syndesis/utils';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { UIContext } from '../../../app';
+import resolvers from '../resolvers';
 import {
   canDelete,
   canExport,
@@ -33,6 +34,7 @@ export enum VirtualizationActionId {
   Revert = 'revert-virt-action',
   Start = 'start-virt-action',
   Stop = 'stop-virt-action',
+  DataPermission = 'data-permission-virt-action',
 }
 
 /**
@@ -523,6 +525,40 @@ export const VirtualizationActionContainer: React.FunctionComponent<
     };
   };
 
+  /**
+   * Creates a custom publish action by overriding property defaults. If there are no `customProps` then the
+   * default action is returned.
+   * @example
+   *    createDataPermissionAction(
+   *      { as: 'danger',
+   *        disabled: false,
+   *        i18nLabel: 'Set Data Permission',
+   *        onClick: () => alert('onClick for publish action')
+   *      }
+   *    );
+   * @param customProps the values used instead of the default values
+   */
+  const createDataPermissionAction = (virtualization?: any): IVirtualizationAction => {
+    /**
+     * The default publish action.
+     */
+    const dataPermissionAction: IVirtualizationAction = {
+      as: 'primary',
+      disabled: false,
+      // href: resolvers.virtualizations.views.root(
+      //   { virtualization }
+      // ),
+      href: resolvers.virtualizations.dataPermission({ virtualization }),
+      i18nLabel: 'Data Permission',
+      id: VirtualizationActionId.DataPermission,
+      onClick: async () => {
+        // tslint:disable-next-line: no-console
+        console.log('data permission');
+      },
+    };
+      return dataPermissionAction;
+  };
+
   /*
     running - modified
       NoButtons | publish, stop, delete
@@ -612,7 +648,8 @@ export const VirtualizationActionContainer: React.FunctionComponent<
       if (canDelete(props.virtualization)) {
         items.push(createDeleteAction(props.deleteActionProps));
       }
-
+      // tslint:disable-next-line: no-unused-expression
+      props.virtualization && items.push(createDataPermissionAction(props.virtualization));
       return items;
     }
 
