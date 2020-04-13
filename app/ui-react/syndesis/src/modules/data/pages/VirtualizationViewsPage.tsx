@@ -198,6 +198,7 @@ export const VirtualizationViewsPage: React.FunctionComponent = () => {
                     i18nNameFilterPlaceholder={t(
                       'shared:nameFilterPlaceholder'
                     )}
+                    i18nManagePermission={t('permissionManage')}
                     i18nResultsCount={t('shared:resultsCount', {
                       count: filteredAndSorted.length,
                     })}
@@ -211,6 +212,7 @@ export const VirtualizationViewsPage: React.FunctionComponent = () => {
                         virtualization,
                       }
                     )}
+                    linkManagePermission={resolvers.data.virtualizations.dataPermission({ virtualization })}
                     hasListData={viewDefinitionDescriptors.length > 0}
                   >
                     {filteredAndSorted

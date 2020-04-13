@@ -165,6 +165,7 @@ stories
           isSortAscending={true}
           linkCreateViewHRef={'/data/create'}
           linkImportViewsHRef={'/data/import'}
+          linkManagePermission= {'.data/permission'}
           resultsCount={0}
           sortTypes={[]}
           onUpdateCurrentValue={action('onUpdateCurrentValue')}
@@ -184,6 +185,7 @@ stories
           i18nCreateView={text('i18nLinkCreateView', createView)}
           i18nImportViews={importViews}
           i18nImportViewsTip={importViewsTip}
+          i18nManagePermission={text('managePermission', 'Manage Permission')}
           i18nName={text('i18nName', 'Name')}
           i18nNameFilterPlaceholder={text(
             'i18nNameFilterPlaceholder',
@@ -219,6 +221,7 @@ stories
           isSortAscending={true}
           linkCreateViewHRef={'/data/create'}
           linkImportViewsHRef={'/data/import'}
+          linkManagePermission= {'.data/permission'}
           resultsCount={0}
           sortTypes={[]}
           onUpdateCurrentValue={action('onUpdateCurrentValue')}
@@ -239,6 +242,7 @@ stories
           i18nImportViews={importViews}
           i18nImportViewsTip={importViewsTip}
           i18nName={text('i18nName', 'Name')}
+          i18nManagePermission={text('managePermission', 'Manage Permission')}
           i18nNameFilterPlaceholder={text(
             'i18nNameFilterPlaceholder',
             'Filter by Name...'

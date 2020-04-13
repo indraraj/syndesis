@@ -88,6 +88,13 @@
   "metricsResultSetCacheTitle": "Cache del set di risultati",
   "metricsUptimeSince": "Dal {{sinceTime}}",
   "metricsUptimeTitle": "Tempo di funzionamento del pod DV",
+  "permissionSelectNone": "Non selezionare niente",
+  "permissionSelectPage": "Seleziona pagina ({{pageListLenght}} articoli)",
+  "permissionSelectAll": "Seleziona tutto ({{allListLength}} articoli)",
+  "permissionNav": "Autorizzazione dati",
+  "permissionHeading": "Imposta l'autorizzazione dati per la virtualizzazione dei dati",
+  "permissionSetButton": "Imposta l'autorizzazione dati",
+  "permissionManage": "Gestisci autorizzazione",
   "preview": {
     "hidePreview": "Nascondi anteprima",
     "loadingQueryResults": "Caricamento dei risultati della query...",

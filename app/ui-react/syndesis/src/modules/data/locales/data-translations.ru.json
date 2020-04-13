@@ -88,6 +88,13 @@
   "metricsResultSetCacheTitle": "Кеш результатов",
   "metricsUptimeSince": "С {{sinceTime}}",
   "metricsUptimeTitle": "DV pod uptime",
+  "permissionSelectNone": "Выберите нет",
+  "permissionSelectPage": "Выберите страницу ({{pageListLenght}} пунктов)",
+  "permissionSelectAll": "Выбрать все ({{allListLength}} пунктов)",
+  "permissionNav": "Разрешение данных",
+  "permissionHeading": "Установите разрешение данных для виртуализации данных",
+  "permissionSetButton": "Установить разрешение на данные",
+  "permissionManage": "Управление разрешениями",
   "preview": {
     "hidePreview": "Скрыть предварительный просмотр",
     "loadingQueryResults": "Загрузка результатов запроса...",

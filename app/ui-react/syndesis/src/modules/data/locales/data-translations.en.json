@@ -88,6 +88,13 @@
   "metricsResultSetCacheTitle": "Result set cache",
   "metricsUptimeSince": "Since {{sinceTime}}",
   "metricsUptimeTitle": "DV pod uptime",
+  "permissionSelectNone": "Select none",
+  "permissionSelectPage": "Select page ({{pageListLenght}} items)",
+  "permissionSelectAll": "Select all ({{allListLength}} items)",
+  "permissionNav": "Data Permission",
+  "permissionHeading": "Set data permission for data virtualization",
+  "permissionSetButton": "Set data permission",
+  "permissionManage": "Manage Permission", 
   "preview": {
     "hidePreview": "Hide preview",
     "loadingQueryResults": "Loading query results...",

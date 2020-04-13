@@ -530,10 +530,9 @@ export const VirtualizationActionContainer: React.FunctionComponent<
    * default action is returned.
    * @example
    *    createDataPermissionAction(
-   *      { as: 'danger',
+   *      { as: 'primary',
    *        disabled: false,
    *        i18nLabel: 'Set Data Permission',
-   *        onClick: () => alert('onClick for publish action')
    *      }
    *    );
    * @param customProps the values used instead of the default values
@@ -545,16 +544,9 @@ export const VirtualizationActionContainer: React.FunctionComponent<
     const dataPermissionAction: IVirtualizationAction = {
       as: 'primary',
       disabled: false,
-      // href: resolvers.virtualizations.views.root(
-      //   { virtualization }
-      // ),
       href: resolvers.virtualizations.dataPermission({ virtualization }),
-      i18nLabel: 'Data Permission',
+      i18nLabel: t('permissionManage'),
       id: VirtualizationActionId.DataPermission,
-      onClick: async () => {
-        // tslint:disable-next-line: no-console
-        console.log('data permission');
-      },
     };
       return dataPermissionAction;
   };
