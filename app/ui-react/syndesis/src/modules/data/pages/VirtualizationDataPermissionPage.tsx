@@ -1,5 +1,6 @@
 import {
   Badge,
+  Button,
   DataList,
   DataListAction,
   DataListCell,
@@ -9,7 +10,6 @@ import {
   DataListItemRow,
   Dropdown,
   DropdownItem,
-  DropdownSeparator,
   DropdownToggle,
   DropdownToggleCheckbox,
   Pagination,
@@ -19,14 +19,15 @@ import {
   ToolbarGroup,
   ToolbarItem,
 } from '@patternfly/react-core';
-import {
-  CaretDownIcon,
-  CloseIcon,
-  PencilAltIcon,
-} from '@patternfly/react-icons';
+import { PencilAltIcon } from '@patternfly/react-icons';
 import { useViewDefinitionDescriptors } from '@syndesis/api';
 import { ViewDefinitionDescriptor } from '@syndesis/models';
-import { Breadcrumb, PageSection, ViewListSkeleton } from '@syndesis/ui';
+import {
+  Breadcrumb,
+  DataPermissionModel,
+  PageSection,
+  ViewListSkeleton,
+} from '@syndesis/ui';
 import { useRouteData, WithLoader } from '@syndesis/utils';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -59,9 +60,7 @@ export const VirtualizationDataPermissionPage: React.FunctionComponent = () => {
   const [isMultiSelectOpen, setIsMultiSelectOpen] = React.useState<boolean>(
     false
   );
-  const [isSetPermissionOpen, setIsSetPermissionOpen] = React.useState<boolean>(
-    false
-  );
+  const [isModalOpen, setIsModalOpen] = React.useState<boolean>(false);
 
   const [perPage, setPerPage] = React.useState<number>(20);
   const [page, setPage] = React.useState<number>(1);
@@ -134,22 +133,6 @@ export const VirtualizationDataPermissionPage: React.FunctionComponent = () => {
     setItemSelected(selectedViews);
   };
 
-  /**
-   * set data permission handling.
-   */
-  const onToggle = (isOpen: boolean) => {
-    setIsSetPermissionOpen(isOpen);
-  };
-  const onSelect = () => {
-    setIsSetPermissionOpen(!isSetPermissionOpen);
-    onFocus();
-  };
-  const onFocus = () => {
-    const element = document.getElementById('set-Data-permission');
-    // tslint:disable-next-line: no-unused-expression
-    element && element.focus();
-  };
-
   const multiSelectDropdownItems = [
     <DropdownItem key="select-none" onClick={clearViewSelection}>
       {t('permissionSelectNone')}
@@ -160,28 +143,16 @@ export const VirtualizationDataPermissionPage: React.FunctionComponent = () => {
       })}
     </DropdownItem>,
     <DropdownItem key="-select-all-list" onClick={selectAllViews}>
-      {t('permissionSelectPage', {
+      {t('permissionSelectAll', {
         allListLength: viewDetails.length,
       })}
     </DropdownItem>,
   ];
 
-  const setPermissionDropdownItems = [
-    <DropdownItem key="disabled-5action" isDisabled={true} component="button">
-      <i>Select view first to set more permission</i>
-    </DropdownItem>,
-    <DropdownSeparator key="separator5" />,
-    <DropdownItem key="separated-5link">Any authentication</DropdownItem>,
-    <DropdownItem key="separated-5action" component="button">
-      Developer
-    </DropdownItem>,
-    <DropdownItem key="separated-5adm" component="button">
-      Admin
-    </DropdownItem>,
-    <DropdownItem key="separated-5new" component="button">
-      User
-    </DropdownItem>,
-  ];
+  const handleModalToggle = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
     <>
       <Breadcrumb>
@@ -197,14 +168,12 @@ export const VirtualizationDataPermissionPage: React.FunctionComponent = () => {
         >
           {t('shared:Data')}
         </Link>
-  <span>{t('permissionNav')}</span>
+        <span>{t('permissionNav')}</span>
       </Breadcrumb>
       <PageSection variant={'light'}>
-        <h1 className="pf-c-title pf-m-xl">
-        {t('permissionHeading')}
-        </h1>
+        <h1 className="pf-c-title pf-m-xl">{t('permissionHeading')}</h1>
       </PageSection>
-      <PageSection>
+      <PageSection style={{ position: 'relative' }}>
         <>
           <WithLoader
             error={viewDefinitionDescriptorsError !== false}
@@ -247,21 +216,9 @@ export const VirtualizationDataPermissionPage: React.FunctionComponent = () => {
                       </ToolbarItem>
 
                       <ToolbarItem className="pf-u-mr-md">
-                        <Dropdown
-                          onSelect={onSelect}
-                          toggle={
-                            <DropdownToggle
-                              onToggle={onToggle}
-                              iconComponent={CaretDownIcon}
-                              isPrimary={true}
-                              id="set-Data-permission"
-                            >
-                              {t('permissionSetButton')}
-                            </DropdownToggle>
-                          }
-                          isOpen={isSetPermissionOpen}
-                          dropdownItems={setPermissionDropdownItems}
-                        />
+                        <Button variant="primary" onClick={handleModalToggle}>
+                          {t('permissionModifyButton')}
+                        </Button>
                       </ToolbarItem>
                     </ToolbarGroup>
                     <ToolbarGroup>
@@ -341,7 +298,7 @@ export const VirtualizationDataPermissionPage: React.FunctionComponent = () => {
                                     'virtualization-data-permission-page-permission_badge'
                                   }
                                 >
-                                  Developer:Read/Edit/Delete <CloseIcon />
+                                  Developer:Read/Edit/Delete
                                 </Badge>
                                 <Badge
                                   key={`temp3-${view.name}`}
@@ -350,7 +307,7 @@ export const VirtualizationDataPermissionPage: React.FunctionComponent = () => {
                                     'virtualization-data-permission-page-permission_badge'
                                   }
                                 >
-                                  Admin:Execute <CloseIcon />
+                                  Admin:Execute
                                 </Badge>
                               </DataListCell>,
                             ]}
@@ -371,6 +328,20 @@ export const VirtualizationDataPermissionPage: React.FunctionComponent = () => {
             )}
           </WithLoader>
         </>
+        <PageSection
+          className={
+            isModalOpen
+              ? 'virtualization-data-permission-page-permission_overlay'
+              : 'virtualization-data-permission-page-permission_overlay_display'
+          }
+        >
+          <DataPermissionModel
+            i18nModelAddPermissionRole={'Add Permission'}
+            i18nModelDataRole={'Select role'}
+            i18nModelPermissionType={'Select Permission'}
+            i18nModelConditionExp={'condition'}
+          />
+        </PageSection>
       </PageSection>
     </>
   );

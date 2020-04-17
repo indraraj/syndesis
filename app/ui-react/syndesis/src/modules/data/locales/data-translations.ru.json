@@ -93,7 +93,7 @@
   "permissionSelectAll": "Выбрать все ({{allListLength}} пунктов)",
   "permissionNav": "Разрешение данных",
   "permissionHeading": "Установите разрешение данных для виртуализации данных",
-  "permissionSetButton": "Установить разрешение на данные",
+  "permissionModifyButton": "Изменить разрешение",
   "permissionManage": "Управление разрешениями",
   "preview": {
     "hidePreview": "Скрыть предварительный просмотр",

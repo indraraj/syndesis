@@ -93,7 +93,7 @@
   "permissionSelectAll": "Select all ({{allListLength}} items)",
   "permissionNav": "Data Permission",
   "permissionHeading": "Set data permission for data virtualization",
-  "permissionSetButton": "Set data permission",
+  "permissionModifyButton": "Modify permission",
   "permissionManage": "Manage Permission", 
   "preview": {
     "hidePreview": "Hide preview",

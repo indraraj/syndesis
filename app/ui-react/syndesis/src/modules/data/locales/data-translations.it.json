@@ -93,7 +93,7 @@
   "permissionSelectAll": "Seleziona tutto ({{allListLength}} articoli)",
   "permissionNav": "Autorizzazione dati",
   "permissionHeading": "Imposta l'autorizzazione dati per la virtualizzazione dei dati",
-  "permissionSetButton": "Imposta l'autorizzazione dati",
+  "permissionModifyButton": "Modifica autorizzazione",
   "permissionManage": "Gestisci autorizzazione",
   "preview": {
     "hidePreview": "Nascondi anteprima",

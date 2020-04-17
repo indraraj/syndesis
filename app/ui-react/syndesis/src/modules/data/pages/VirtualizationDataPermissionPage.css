@@ -1,17 +1,28 @@
-.virtualization-data-permission-page-toolbar_section{
-    background-color: white;
-    padding: 1px;
+.virtualization-data-permission-page-toolbar_section {
+  background-color: white;
+  padding: 1px;
 }
-.virtualization-data-permission-page-toolbar{
-    justify-content: space-between;
+.virtualization-data-permission-page-toolbar {
+  justify-content: space-between;
 }
-.virtualization-data-permission-page-list_heading{
-    visibility: hidden;
+.virtualization-data-permission-page-list_heading {
+  visibility: hidden;
 }
-.virtualization-data-permission-page-list_headingText{
-    font-weight: bold;
+.virtualization-data-permission-page-list_headingText {
+  font-weight: bold;
 }
-.virtualization-data-permission-page-permission_badge{
-    padding: 5px;
-    margin-left: 15px;
+.virtualization-data-permission-page-permission_badge {
+  padding: 5px;
+  margin-left: 15px;
 }
+.virtualization-data-permission-page-permission_overlay {
+  background-color: white;
+  width: 40%;
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  height: 100%;
+}
+.virtualization-data-permission-page-permission_overlay_display {
+    display: none;
+  }

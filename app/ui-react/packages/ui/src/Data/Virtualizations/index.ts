@@ -15,3 +15,5 @@ export * from './VirtualizationImporter';
 export * from './VirtualizationList';
 export * from './VirtualizationListItem';
 export * from './VirtualizationListSkeleton';
+export * from './DataPermissionModel';
+export * from './DataPermissionRole';
